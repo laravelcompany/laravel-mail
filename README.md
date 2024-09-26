@@ -106,7 +106,8 @@ If you discover any security related issues, please email security@laravelmail.c
 
 - [Laravel](https://laravel.com)
 - [SendPortal](https://sendportal.io)
-- 
+- [42Coders](https://42coders.com/)
+
 ## License
 
 The MIT License (MIT).
