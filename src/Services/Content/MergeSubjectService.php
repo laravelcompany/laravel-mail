@@ -1,0 +1,52 @@
+<?php
+
+declare(strict_types=1);
+
+namespace LaravelCompany\Mail\Services\Content;
+
+use LaravelCompany\Mail\Models\Message;
+use LaravelCompany\Mail\Traits\NormalizeTags;
+
+class MergeSubjectService
+{
+    use NormalizeTags;
+
+    public function handle(Message $message): string
+    {
+        $messageSubject = $this->compileTags($message);
+
+        return $this->mergeSubscriberTags($messageSubject, $message);
+    }
+
+    protected function compileTags(Message $message): string
+    {
+        $tags = [
+            'email',
+            'first_name',
+            'last_name',
+        ];
+
+        $messageSubject = $message->subject;
+
+        foreach ($tags as $tag) {
+            $messageSubject = $this->normalizeTags($messageSubject, $tag);
+        }
+
+        return $messageSubject;
+    }
+
+    protected function mergeSubscriberTags(string $messageSubject, Message $message): string
+    {
+        $tags = [
+            'email' => $message->recipient_email,
+            'first_name' => optional($message->subscriber)->first_name ?? '',
+            'last_name' => optional($message->subscriber)->last_name ?? '',
+        ];
+
+        foreach ($tags as $key => $replace) {
+            $messageSubject = str_ireplace('{{' . $key . '}}', $replace, $messageSubject);
+        }
+
+        return $messageSubject;
+    }
+}

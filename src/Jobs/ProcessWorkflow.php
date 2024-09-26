@@ -1,0 +1,61 @@
+<?php
+
+namespace LaravelCompany\Mail\Jobs;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\DB;
+use LaravelCompany\Mail\DataBuses\DataBus;
+use LaravelCompany\Mail\Loggers\WorkflowLog;
+use LaravelCompany\Mail\Triggers\Trigger;
+
+class ProcessWorkflow implements ShouldQueue
+{
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
+    protected $model;
+    protected $dataBus;
+    protected $trigger;
+    protected $log;
+
+    /**
+     * Create a new job instance.
+     *
+     * @return void
+     */
+    public function __construct(Model $model, DataBus $dataBus, Trigger $trigger, WorkflowLog $log)
+    {
+        $this->model = $model;
+        $this->dataBus = $dataBus;
+        $this->trigger = $trigger;
+        $this->log = $log;
+    }
+
+    /**
+     * Execute the job.
+     *
+     * @return void
+     */
+    public function handle()
+    {
+        DB::beginTransaction();
+        try {
+            foreach ($this->trigger->children as $task) {
+                $task->init($this->model, $this->dataBus, $this->log);
+                $task->execute();
+                $task->pastExecute();
+            }
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            $this->log->setError($e->getMessage(), $this->dataBus);
+            $this->log->createTaskLogsFromMemory();
+        }
+
+        $this->log->finish();
+        DB::commit();
+    }
+}

@@ -1,0 +1,328 @@
+// Importing core dependencies
+@import 'utilities';
+@import 'typography';
+@import 'borders';
+@import 'forms';
+@import 'buttons';
+@import 'pages';
+@import 'modals';
+@import 'tables';
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+// Variables
+$bg-body: #4b1e4e; // Dark background color for the body
+$font-family: 'Nunito', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-size-base: 1.2rem;
+$font-size-md: 1.4rem;
+$font-size-sm: 1.4rem;
+$line-height-base: 1.6;
+
+$blue: #4b1e4e; // Updated to Dark Purple from the palette
+$primary: #C270C8; // Updated to Purple from the palette
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66D9b;
+$red: #B42583; // Updated to Red/Pink from the palette
+$orange: #EEB55A; // Updated to Yellow/Orange from the palette
+$yellow: #F58140; // Updated to Orange from the palette
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+$white: #eaeaea; // Light text on dark background
+$dark-gray: #4b1e4e;
+
+
+
+$blue-hyperlink: #59079E; // Updated to Dark Purple from the palette
+$purple-100: darken($primary, 40%);
+$purple-200: lighten($primary, 20%);
+$purple-300: darken($indigo, 30%);
+$purple-500: $red;  // Using the $red variable directly for consistency
+$purple-800: lighten($purple-100, 30%);
+$light-blue: lighten($blue, 50%);
+$smoke-blue: darken(#f9fbff, 1%);
+$font-blue: darken($blue, 30%);
+$smoke: lighten($bg-body, 20%);
+
+$gray-000: lighten($dark-gray, 10%);
+$gray-100: #eceff2;
+$gray-200: #dee2e6;
+$gray-300: #ced4da;
+$gray-400: #adb5bd;
+$gray-500: #8B97A3;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #4b1e4e;
+
+$border-color: #cacaca;
+$border-focus-color: darken($border-color, 10%);
+$bg-card-header: lighten($white, 3%);
+
+$primary-blue: lighten($blue, 30%);
+$primary-red: #B42583; // Updated to Red/Pink from the palette
+
+// Layout
+$sidebar-width: 225px;
+$header-height: 60px;
+$h-header: 3.5rem;
+$transition: transform .3s ease-in-out, width .3s ease-in-out, margin .3s ease-in-out;
+
+$radius: 4px;
+
+
+
+@import 'drawflow';
+
+
+
+
+
+// Global styles
+
+:root {
+    --bs-table-bg: $dark-gray;
+    --bs-modal-bg: $bg-body !important;
+    --bs-pagination-bg: $bg-body;
+}
+
+
+
+html, body {
+    height: 100%;
+    font-family: $font-family;
+    font-size: $font-size-base;
+    background-color: $bg-body;
+    color: $white;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .bg-dark{
+        background-color: $bg-body;
+    }
+}
+
+a {
+    color: $white !important;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+// Content wrapper
+#content-wrapper {
+    min-width: 100vw;
+
+    @media (min-width: 992px) {
+        min-width: 0;
+        width: 100%;
+    }
+}
+
+// Background colors
+.bg-purple-100 {
+    background-color: $purple-100 !important;
+}
+
+.bg-dark-gray {
+    background-color: $gray-800 !important;
+}
+
+.bg-dark-gray-light {
+    background-color: $gray-500 !important;
+}
+
+.bg-purple-200 {
+    background-color: $purple-200 !important;
+}
+
+.bg-purple-500 {
+    background-color: $purple-500 !important;
+}
+
+// Text colors
+$gray-colors: (
+    '100': $gray-100,
+    '200': $gray-200,
+    '300': $gray-300,
+    '400': $gray-400,
+    '500': $gray-500,
+    '600': $gray-600,
+    '700': $gray-700,
+    '800': $gray-800
+);
+
+@each $name, $color in $gray-colors {
+    .color-gray-#{$name} {
+        color: $color !important;
+    }
+}
+
+// Flex widths
+$flex-widths: (
+    '25': 25px,
+    '80': 80px,
+    '160': 160px
+);
+
+@each $name, $width in $flex-widths {
+    .fw-#{$name} {
+        flex: 0 0 #{$width};
+    }
+}
+
+// Navbar styles
+.navbar, .navbar-expand .navbar-nav .nav-link {
+
+    border: none;
+    padding-right: 0;
+}
+
+// Sidebar styles
+.sidebar {
+    background-color: $purple-100; /* Dark purple shade for the sidebar */
+    color: $white;
+    border-right: 1px solid $gray-200;
+    transition: transform 0.1s ease-in-out, width 0.1s ease-in-out, margin 0.1s ease-in-out;
+
+    .sidebar-inner {
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li.nav-item {
+            margin-bottom: 0.2rem;
+            padding: 0;
+
+            a.nav-link {
+                color: $white;
+                padding: 0.7rem 0 0.7em .2rem;
+                border-left: 6px solid $purple-100;
+                border-radius: 6px;
+
+                &:hover, &.active {
+                    background: lighten($purple-100, 10%);
+                    border-left-color: $purple-500;
+                }
+            }
+        }
+    }
+}
+
+// Utility classes
+.empty-table-text {
+    margin: 0 2rem;
+    text-align: center;
+    color: #777;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.badge {
+    letter-spacing: 0.075em;
+    padding: 0.25rem 0.5rem;
+    border-radius: $radius;
+    font-size: 0.75rem;
+}
+
+// Custom styles for header, buttons, alerts, etc.
+.header {
+    background-color: darken($bg-body, 10%); /* Darker header background */
+    color: $white;
+}
+
+.dashboard-content {
+    background-color: lighten($bg-body, 5%); /* Main content area dark background */
+    color: $white;
+}
+
+.table {
+    background-color: lighten($bg-body, 10%); /* Dark table background */
+    color: $white;
+}
+
+.table th, .table td {
+    color: $white;
+    border-color: darken($dark-gray, 20%); /* Border color for table */
+}
+
+.table th {
+    color: $white;
+    background-color: darken($dark-gray, 15%);
+}
+
+.table-hover tbody tr:hover {
+    background-color: lighten($bg-body, 15%); /* Row hover background */
+}
+
+.button-primary {
+    background-color: darken($bg-body, 10%); /* Background for charts */
+    color: $white;
+    border-color: $purple-200;
+}
+
+.btn-light {
+    background-color: darken($bg-body, 10%); /* Background for charts */
+    color: $white;
+    border-color: $purple-200;
+}
+
+.button-primary:hover {
+    background-color: lighten($purple-200, 15%); /* Hover color for the button */
+    border-color: lighten($purple-200, 15%);
+}
+
+.chart-container {
+    background-color: darken($bg-body, 10%); /* Background for charts */
+    color: $white;
+}
+
+.chart-axis {
+    stroke: $white; /* Axis color for charts */
+}
+
+.chart-grid {
+    stroke: darken($bg-body, 20%); /* Gridline color for charts */
+}
+
+.footer {
+    background-color: darken($bg-body, 10%); /* Footer background */
+    color: $white;
+}
+:root {
+
+    --bs-table-bg: $dark-gray;
+}
+.card-body {
+    background-color: darken($bg-body, 10%); /* Footer background */
+}
+
+.card-header {
+    background-color: darken($bg-body, 10%); /* Footer background */
+}
+
+.settings-container {
+    color: white;
+    background-color: darken($bg-body, 10%);
+    .form-group {
+        margin-bottom: 2vh;
+    }
+    .btn-default {
+        background-color: darken($bg-body, 10%);
+        border-color: darken($bg-body, 10%);
+        color: white;
+        &:hover {
+            background-color: lighten($bg-body, 10%);
+            border-color: lighten($bg-body, 10%);
+        }
+    }
+}
+
+
+

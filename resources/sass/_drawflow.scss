@@ -1,0 +1,287 @@
+// Base Styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: $font-family;
+}
+
+header {
+    height: 66px;
+    border-bottom: 1px solid $border-color;
+    padding-left: 20px;
+
+    h2 {
+        margin: 0;
+        line-height: 66px;
+    }
+
+    a {
+        color: $dark-gray;  // Replaced with variable
+    }
+
+    .github-link {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        color: $dark-gray;  // Replaced with variable
+    }
+}
+
+.wrapper {
+    width: 100%;
+    height: calc(100vh - 67px);
+    display: flex;
+}
+
+.col {
+    overflow: auto;
+    width: 300px;
+    height: 100%;
+    border-right: 1px solid $border-color;
+}
+
+.drag-drawflow {
+    line-height: 50px;
+    border-bottom: 1px solid $border-color;
+    padding-left: 20px;
+    cursor: move;
+    user-select: none;
+}
+
+.menu {
+    position: absolute;
+    height: 40px;
+    width: 100%;
+    background: $white;  // Replaced with variable
+    display: block;
+
+    ul {
+        padding: 0;
+        margin: 0;
+        line-height: 40px;
+
+        li {
+            display: inline-block;
+            margin-left: 10px;
+            border-right: 1px solid $border-color;
+            padding-right: 10px;
+            line-height: 40px;
+            cursor: pointer;
+
+            &.selected {
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+@mixin button-style($bg-color, $border-color) {
+    color: $white;  // Replaced with variable
+    font-weight: bold;
+    border: 1px solid $border-color;
+    background: $bg-color;
+    padding: 5px 10px;
+    border-radius: $radius;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.btn-export {
+    @include button-style($primary-blue, darken($primary-blue, 10%));
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.btn-clear {
+    @include button-style($primary-red, darken($primary-red, 10%));
+    position: absolute;
+    top: 10px;
+    right: 85px;
+}
+
+.btn-logs, .btn-lock, .bar-zoom {
+    @include button-style($dark-gray, $border-color);
+    display: flex;
+    font-size: 24px;
+    position: absolute;
+
+    &.btn-logs {
+        bottom: 2vh;
+        left: 158px;
+    }
+
+    &.btn-lock {
+        bottom: 2vh;
+        left: 110px;
+    }
+
+    &.bar-zoom {
+        bottom: 2vh;
+        left: 10px;
+
+        svg {
+            cursor: pointer;
+            padding-left: 10px;
+
+            &:first-child {
+                padding-left: 0;
+            }
+        }
+    }
+}
+
+#drawflow {
+    position: relative;
+    width: calc(100vw - 301px);
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 768px) {
+    .col {
+        width: 50px;
+
+        .drag-drawflow span {
+            display: none;
+        }
+    }
+
+    #drawflow {
+        width: calc(100vw - 51px);
+    }
+}
+
+/* Editing Drawflow */
+.drawflow {
+    .drawflow-node {
+        background: $bg-body;  // Replaced with variable
+        border: 1px solid $border-color;
+        box-shadow: 0 2px 15px 2px $border-color;
+        padding: 0;
+        width: 200px;
+
+        &.selected {
+            background: $white;  // Replaced with variable
+            border: 1px solid $primary-blue;
+            box-shadow: 0 2px 20px 2px $primary-blue;
+
+            .title-box {
+                color: white;
+            }
+        }
+
+        .title-box {
+
+            background: $purple-200;  // Replaced with variable
+            border-radius: $radius $radius 0 0;
+            padding: 10px;
+
+            svg {
+                position: initial;
+            }
+        }
+
+        .box {
+            font-size: 12px;
+            color: $gray-800;
+
+            p {
+                margin: 5px 0;
+            }
+        }
+
+        .input, .output {
+            height: 15px;
+            width: 15px;
+            border: 2px solid $border-color;
+
+            &:hover {
+                background:darken($bg-body, 10%);;
+            }
+
+            &.input {
+                left: -10px;
+                background: $white;  // Replaced with variable
+            }
+
+            &.output {
+                right: 10px;
+            }
+        }
+
+        &.personalized {
+            background: $primary;  // Replaced with variable
+            height: 200px;
+            text-align: center;
+            color: $white;  // Replaced with variable
+
+            .input {
+                background: $yellow;  // Replaced with variable
+            }
+
+            .output {
+                background: $green;  // Replaced with variable
+            }
+
+            &.selected {
+                background: $purple-800;  // Replaced with variable
+            }
+        }
+    }
+
+    .connection .main-path {
+        stroke: $primary-blue;
+        stroke-width: 3px;
+    }
+
+    > .drawflow-delete {
+        border: 2px solid $light-blue;
+        background: $white;  // Replaced with variable
+        color: $light-blue;
+        box-shadow: 0 2px 20px 2px $light-blue;
+    }
+}
+
+.settings-container {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 42;
+    background-color: $bg-body;  // Replaced with variable
+    width: 100%;
+    height: 100%;
+    padding-top: 100px;
+
+    .settings-button {
+        font-size: 20px;
+
+        &:hover {
+            color: lighten($dark-gray, 20%);
+            cursor: pointer;
+        }
+    }
+}
+
+.modal-backdrop {
+    z-index: -1;
+}
+
+/* Modal */
+.modal {
+    z-index: 42;
+
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba($dark-gray, 0.7);  // Replaced with variable
+}
