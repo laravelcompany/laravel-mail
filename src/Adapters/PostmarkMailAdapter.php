@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace LaravelCompany\Mail\Adapters;
 
 use Illuminate\Support\Arr;
+use LaravelCompany\Mail\Services\Messages\MessageTrackingOptions;
 use Postmark\Models\PostmarkResponse;
 use Postmark\PostmarkClient;
-use LaravelCompany\Mail\Services\Messages\MessageTrackingOptions;
 
 class PostmarkMailAdapter extends BaseMailAdapter
 {

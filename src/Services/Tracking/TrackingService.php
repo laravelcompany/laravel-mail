@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Services\Tracking;
 
 /**
@@ -8,7 +10,7 @@ namespace LaravelCompany\Mail\Services\Tracking;
  */
 class TrackingService
 {
-    public function track():string
+    public function track(): string
     {
         return 'Tracking Service';
     }

@@ -1,12 +1,13 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Http\Requests;
 
 use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use LaravelCompany\Mail\Facades\LaravelMail;
-
 
 /**
  * @property-read string $subscriber

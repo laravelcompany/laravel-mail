@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace LaravelCompany\Mail\Services\Inbox;
@@ -14,7 +15,6 @@ use Webklex\PHPIMAP\Exceptions\ImapServerErrorException;
 use Webklex\PHPIMAP\Exceptions\ResponseException;
 use Webklex\PHPIMAP\Exceptions\RuntimeException;
 use Webklex\PHPIMAP\Support\FolderCollection;
-
 
 class InboxService implements InboxContract
 {

@@ -1,10 +1,11 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Adapters;
 
 use Illuminate\Support\Arr;
 use LaravelCompany\Mail\Services\Messages\MessageTrackingOptions;
-use Symfony\Component\Mailer\Exception\TransportException;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\Mailer;
 use Symfony\Component\Mailer\SentMessage;
@@ -27,11 +28,8 @@ class SmtpAdapter extends BaseMailAdapter
         $message = $this->resolveMessage($subject, $content, $fromEmail, $fromName, $toEmail);
 
         try {
-
             $this->resolveClient()->send($message);
-
         } catch (TransportExceptionInterface $e) {
-
             return $this->resolveMessageId($e->getCode());
         }
 

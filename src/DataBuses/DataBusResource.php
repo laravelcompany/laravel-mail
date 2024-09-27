@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\DataBuses;
 
 use Illuminate\Database\Eloquent\Model;
@@ -16,8 +18,10 @@ class DataBusResource implements Resource
         switch ($operator) {
             case 'equal':
                 return $dataBus->data[$dataBus->data[$field]] == $value;
+
             case 'not_equal':
                 return $dataBus->data[$dataBus->data[$field]] != $value;
+
             default:
                 return true;
         }

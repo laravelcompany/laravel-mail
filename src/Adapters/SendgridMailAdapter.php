@@ -7,11 +7,11 @@ namespace LaravelCompany\Mail\Adapters;
 use DomainException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use LaravelCompany\Mail\Services\Messages\MessageTrackingOptions;
 use SendGrid;
 use SendGrid\Mail\Mail;
 use SendGrid\Mail\TypeException;
 use SendGrid\Response as SendgridResponse;
-use LaravelCompany\Mail\Services\Messages\MessageTrackingOptions;
 use Symfony\Component\HttpFoundation\Response;
 
 class SendgridMailAdapter extends BaseMailAdapter

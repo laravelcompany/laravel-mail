@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace LaravelCompany\Mail\Routes;
 
-use App\Http\Controllers\Intelligence\IntelligenceController;
 use Illuminate\Routing\Router;
-use Illuminate\Support\Facades\Route;
 use LaravelCompany\Mail\Http\Controllers\WorkflowController;
 
 class WebRoutes

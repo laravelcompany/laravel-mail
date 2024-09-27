@@ -29,7 +29,6 @@ class SubscriberTagsController extends Controller
     ) {
         $this->subscribers = $subscribers;
         $this->apiService = $apiService;
-
     }
 
     /**

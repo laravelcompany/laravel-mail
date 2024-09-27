@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace LaravelCompany\Mail\Services;
@@ -25,6 +26,6 @@ class Helper
 
     public function isPro(): bool
     {
-      return false;
+        return false;
     }
 }

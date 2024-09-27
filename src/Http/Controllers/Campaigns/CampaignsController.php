@@ -95,7 +95,6 @@ class CampaignsController extends Controller
      */
     public function create(): ViewContract
     {
-
         $templates = [null => '- None -'] + $this->templates->pluck($this->workspaceId);
         $emailServices = $this->emailServices->all($this->workspaceId, 'id', ['type'])
             ->map(static function (EmailService $emailService) {
@@ -131,7 +130,6 @@ class CampaignsController extends Controller
      */
     public function edit(int $id): ViewContract
     {
-
         $campaign = $this->campaigns->find($this->workspaceId, $id);
         $emailServices = $this->emailServices->all($this->workspaceId, 'id', ['type'])
             ->map(static function (EmailService $emailService) {
@@ -181,7 +179,6 @@ class CampaignsController extends Controller
      */
     public function status(int $id)
     {
-
         $campaign = $this->campaigns->find($this->workspaceId, $id, ['status']);
 
         if ($campaign->sent) {

@@ -21,6 +21,7 @@ class PregReplace extends Task
         $this->setData('preg_replace_output', preg_replace(
             $this->getData('pattern'),
             $this->getData('replacement'),
-            $this->getData('subject')));
+            $this->getData('subject')
+        ));
     }
 }

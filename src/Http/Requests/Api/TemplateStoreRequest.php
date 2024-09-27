@@ -7,7 +7,6 @@ namespace LaravelCompany\Mail\Http\Requests\Api;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use LaravelCompany\Mail\Facades\LaravelMail;
-use LaravelCompany\Mail\Facades\Sendportal;
 
 class TemplateStoreRequest extends FormRequest
 {

@@ -7,7 +7,6 @@ namespace LaravelCompany\Mail\Repositories\Messages;
 use Exception;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use LaravelCompany\Mail\Facades\Helper;
@@ -38,7 +37,7 @@ abstract class BaseMessageTenantRepository extends BaseTenantRepository implemen
 
         $results =  $instance
             ->orderBy($this->getOrderBy(), $this->getOrderDirection())
-    ;
+        ;
         return $results->paginate($paginate);
     }
 

@@ -7,7 +7,6 @@ namespace LaravelCompany\Mail\Services\Messages;
 use LaravelCompany\Mail\Models\Campaign;
 use LaravelCompany\Mail\Models\Message;
 
-
 class MessageTrackingOptions
 {
     /** @var bool */

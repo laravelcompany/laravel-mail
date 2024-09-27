@@ -9,9 +9,9 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
-use RuntimeException;
 use LaravelCompany\Mail\Events\Webhooks\SendgridWebhookReceived;
 use LaravelCompany\Mail\Services\Webhooks\EmailWebhookService;
+use RuntimeException;
 
 class HandleSendgridWebhook implements ShouldQueue
 {

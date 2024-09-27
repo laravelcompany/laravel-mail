@@ -19,6 +19,5 @@ class ObserverTrigger extends Trigger
             'class' => DropdownField::make(config('workflows.triggers.Observers.classes')),
             'event' => DropdownField::make(array_combine(config('workflows.triggers.Observers.events'), config('workflows.triggers.Observers.events'))),
         ];
-
     }
 }

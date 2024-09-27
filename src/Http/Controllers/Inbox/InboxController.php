@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Http\Controllers\Inbox;
 
 use Illuminate\View\View;
@@ -13,7 +15,6 @@ use Webklex\PHPIMAP\Exceptions\ImapBadRequestException;
 use Webklex\PHPIMAP\Exceptions\ImapServerErrorException;
 use Webklex\PHPIMAP\Exceptions\ResponseException;
 use Webklex\PHPIMAP\Exceptions\RuntimeException;
-
 
 class InboxController extends Controller
 {
@@ -39,7 +40,7 @@ class InboxController extends Controller
     {
         $messages = $this->inboxService->getMessages("INBOX");
 
-        return view('laravel-mail::inbox.index', compact( 'messages'));
+        return view('laravel-mail::inbox.index', compact('messages'));
     }
 
 

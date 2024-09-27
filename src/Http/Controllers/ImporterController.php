@@ -1,10 +1,10 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Http\Controllers;
 
-use Illuminate\View\View;
 use LaravelCompany\Mail\Facades\LaravelMail;
-
 
 class ImporterController extends Controller
 {

@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Tasks;
 
 use Illuminate\Database\Eloquent\Model;
@@ -13,10 +15,10 @@ use LaravelCompany\Mail\Loggers\TaskLog;
 use LaravelCompany\Mail\Loggers\WorkflowLog;
 use LaravelCompany\Mail\Models\Workflow;
 
-
 class Task extends Model implements TaskInterface
 {
-    use DataBussable, Fieldable;
+    use DataBussable;
+    use Fieldable;
 
     protected $table = 'tasks';
 
@@ -164,7 +166,7 @@ class Task extends Model implements TaskInterface
     /**
      * @throws \Throwable
      */
-    public function pastExecute():string
+    public function pastExecute(): string
     {
         if (empty($this->children)) {
             return 'nothing to do'; //TODO: TASK IS FINISHED
@@ -173,6 +175,7 @@ class Task extends Model implements TaskInterface
         $this->workflowLog->updateTaskLog($this->id, '', TaskLog::$STATUS_FINISHED, \Illuminate\Support\Carbon::now());
         foreach ($this->children as $child) {
             $child->init($this->model, $this->dataBus, $this->workflowLog);
+
             try {
                 $child->execute();
             } catch (\Throwable $e) {
@@ -184,7 +187,7 @@ class Task extends Model implements TaskInterface
         return 'finished';
     }
 
-    public function getSettings():View
+    public function getSettings(): View
     {
         return view('laravel-mail::layouts.settings_overlay', [
             'element' => $this,
@@ -198,6 +201,6 @@ class Task extends Model implements TaskInterface
 
     public static function getTranslationKey(): string
     {
-        return (new \ReflectionClass(new static))->getShortName();
+        return (new \ReflectionClass(new static()))->getShortName();
     }
 }

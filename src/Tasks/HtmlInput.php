@@ -59,5 +59,4 @@ class HtmlInput extends Task
 
         return ob_get_clean();
     }
-
 }

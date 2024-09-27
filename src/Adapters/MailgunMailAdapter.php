@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace LaravelCompany\Mail\Adapters;
 
 use Illuminate\Support\Arr;
+use LaravelCompany\Mail\Services\Messages\MessageTrackingOptions;
 use Mailgun\Mailgun;
 use Mailgun\Model\Message\SendResponse;
-use LaravelCompany\Mail\Services\Messages\MessageTrackingOptions;
 
 class MailgunMailAdapter extends BaseMailAdapter
 {

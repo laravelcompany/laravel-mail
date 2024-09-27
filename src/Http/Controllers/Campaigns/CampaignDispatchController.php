@@ -8,7 +8,6 @@ use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use LaravelCompany\Mail\Facades\LaravelMail;
-use LaravelCompany\Mail\Facades\Sendportal;
 use LaravelCompany\Mail\Http\Controllers\Controller;
 use LaravelCompany\Mail\Http\Requests\CampaignDispatchRequest;
 use LaravelCompany\Mail\Interfaces\QuotaServiceInterface;
@@ -55,7 +54,7 @@ class CampaignDispatchController extends Controller
 //            'send_to_all' => $request->get('recipients') === 'send_to_all',
 //        ]);
 
-       // $campaign->tags()->sync($request->get('tags'));
+        // $campaign->tags()->sync($request->get('tags'));
 
         if ($this->quotaService->exceedsQuota($campaign->email_service, $campaign->unsent_count)) {
             return redirect()->route('laravel-mail.campaigns.edit', $id)

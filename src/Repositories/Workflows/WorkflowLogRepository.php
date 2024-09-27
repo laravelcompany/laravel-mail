@@ -8,5 +8,4 @@ use LaravelCompany\Mail\Repositories\BaseEloquentRepository;
 class WorkflowLogRepository extends BaseEloquentRepository
 {
     protected $modelName = WorkflowLog::class;
-
 }

@@ -8,7 +8,6 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use LaravelCompany\Mail\Facades\LaravelMail;
 
-
 class TagUpdateRequest extends FormRequest
 {
     public function rules(): array

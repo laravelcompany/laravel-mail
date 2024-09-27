@@ -15,7 +15,10 @@ use LaravelCompany\Mail\Triggers\Trigger;
 
 class ProcessWorkflow implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     protected $model;
     protected $dataBus;
@@ -43,6 +46,7 @@ class ProcessWorkflow implements ShouldQueue
     public function handle()
     {
         DB::beginTransaction();
+
         try {
             foreach ($this->trigger->children as $task) {
                 $task->init($this->model, $this->dataBus, $this->log);

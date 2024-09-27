@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace LaravelCompany\Mail\Models;
 
-use Database\Factories\MessageFactory;
 use Carbon\Carbon;
+use Database\Factories\MessageFactory;
 
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -14,8 +14,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use LaravelCompany\Mail\Triggers\WorkflowObservable;
 use Ramsey\Uuid\Uuid;
-
-
 
 /**
  * @property int $id

@@ -1,7 +1,8 @@
 <?php
-declare(strict_types=1);
-namespace LaravelCompany\Mail\Http\Controllers\Subscribers;
 
+declare(strict_types=1);
+
+namespace LaravelCompany\Mail\Http\Controllers\Subscribers;
 
 use Exception;
 use Illuminate\Contracts\View\View as ViewContract;
@@ -14,12 +15,12 @@ use Illuminate\Support\Str;
 use Illuminate\Support\ViewErrorBag;
 use Illuminate\Validation\ValidationException;
 use LaravelCompany\Mail\Facades\LaravelMail;
-use Rap2hpoutre\FastExcel\FastExcel;
-
 use LaravelCompany\Mail\Http\Controllers\Controller;
+
 use LaravelCompany\Mail\Http\Requests\SubscribersImportRequest;
 use LaravelCompany\Mail\Repositories\TagTenantRepository;
 use LaravelCompany\Mail\Services\Subscribers\ImportSubscriberService;
+use Rap2hpoutre\FastExcel\FastExcel;
 
 class SubscribersImportController extends Controller
 {
@@ -160,25 +161,20 @@ class SubscribersImportController extends Controller
     {
         $rows = collect($request->get('rows'));
 
-        $rows->each
-        (/**
+        $rows->each(/**
          * @throws Exception
          */
-        function ($row) use ($request) {
+            function ($row) use ($request) {
+                if (count($row['values']) > 0) {
+                    $row['values']['tags'] = $request->get('tags') ?? [];
 
-            if(count($row['values']) > 0){
-
-                $row['values']['tags'] = $request->get('tags') ?? [];
-
-                //todo dispatch workflow to check for subscribers
-                $this->subscriberService->import($this->workspaceId, $row['values']);
-
-
+                    //todo dispatch workflow to check for subscribers
+                    $this->subscriberService->import($this->workspaceId, $row['values']);
+                }
             }
-        });
+        );
 
 
         return redirect()->route('laravel-mail.subscribers.index')->with('flash', 'Subscriber imported successfully.');
-
     }
 }

@@ -7,9 +7,9 @@ namespace LaravelCompany\Mail\Services\Content;
 use Exception;
 use LaravelCompany\Mail\Models\Campaign;
 use LaravelCompany\Mail\Models\Message;
+use LaravelCompany\Mail\Repositories\AutomationScheduleRepository;
 use LaravelCompany\Mail\Repositories\Campaigns\CampaignTenantRepositoryInterface;
 use LaravelCompany\Mail\Traits\NormalizeTags;
-use LaravelCompany\Mail\Repositories\AutomationScheduleRepository;
 use TijsVerkoyen\CssToInlineStyles\CssToInlineStyles;
 
 class MergeContentService
@@ -76,7 +76,6 @@ class MergeContentService
      */
     private function mergeAutomationContent(Message $message): string
     {
-
         if (! $schedule = app(AutomationScheduleRepository::class)->find($message->source_id, ['automation_step'])) {
             throw new Exception('Unable to resolve automation step for message id=' . $message->id);
         }

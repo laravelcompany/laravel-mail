@@ -8,9 +8,9 @@ use Carbon\Carbon;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Log;
-use RuntimeException;
 use LaravelCompany\Mail\Events\Webhooks\PostmarkWebhookReceived;
 use LaravelCompany\Mail\Services\Webhooks\EmailWebhookService;
+use RuntimeException;
 
 class HandlePostmarkWebhook implements ShouldQueue
 {

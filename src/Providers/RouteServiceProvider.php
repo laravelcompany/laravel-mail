@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Providers;
 
 use Illuminate\Support\Facades\Route;

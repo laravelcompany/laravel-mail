@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Fields;
 
 use LaravelCompany\Mail\DataBuses\DataBusResource;
@@ -18,7 +20,7 @@ class TrixInputField implements FieldInterface
         return new self();
     }
 
-    public function render(mixed $element, mixed $value, mixed $field):string
+    public function render(mixed $element, mixed $value, mixed $field): string
     {
         $placeholders = [];
 

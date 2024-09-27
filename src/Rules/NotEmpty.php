@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Rules;
 
 use Illuminate\Contracts\Validation\Rule;

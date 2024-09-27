@@ -1,12 +1,13 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 use LaravelCompany\Mail\Console\Commands\CampaignDispatchCommand;
-use LaravelCompany\Mail\Database\Seeders\ApplicationSeeder;
 use LaravelCompany\Mail\Providers\EventServiceProvider;
 use LaravelCompany\Mail\Providers\FormServiceProvider;
 use LaravelCompany\Mail\Providers\LaravelMailServiceProvider;
@@ -20,7 +21,7 @@ class MailBaseServiceProvider extends ServiceProvider
     /**
      * Bootstrap the application services.
      */
-    public function boot():void
+    public function boot(): void
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
@@ -53,8 +54,6 @@ class MailBaseServiceProvider extends ServiceProvider
         $this->loadJsonTranslationsFrom(resource_path('lang/vendor/laravel-mail'));
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-mail');
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-
-
     }
 
     /**
@@ -80,6 +79,5 @@ class MailBaseServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'laravel-mail');
         // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'workflows');
-
     }
 }

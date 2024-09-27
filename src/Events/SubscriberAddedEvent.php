@@ -9,7 +9,6 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 use LaravelCompany\Mail\Models\Subscriber;
 
-
 class SubscriberAddedEvent
 {
     use Dispatchable;

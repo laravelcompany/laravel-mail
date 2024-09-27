@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Notifications;
 
 use Illuminate\Bus\Queueable;
@@ -37,7 +39,7 @@ class SlackNotification extends Notification
 
     public function toSlack($notifiable): SlackMessage
     {
-        return (new SlackMessage)
+        return (new SlackMessage())
             ->to($this->to)
             ->content($this->message);
     }

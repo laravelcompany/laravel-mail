@@ -1,11 +1,12 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use LaravelCompany\Mail\Facades\LaravelMail;
-use LaravelCompany\Mail\Facades\Sendportal;
 use LaravelCompany\Mail\Repositories\TagTenantRepository;
 
 class CampaignDispatchRequest extends FormRequest

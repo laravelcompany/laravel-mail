@@ -8,7 +8,6 @@ use Illuminate\Support\Str;
 use LaravelCompany\Mail\Services\Messages\RelayMessage;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
-
 abstract class TestCase extends BaseTestCase
 {
     use LaravelMailTestSupportTrait;

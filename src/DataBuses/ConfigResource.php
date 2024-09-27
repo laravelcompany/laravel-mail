@@ -1,11 +1,12 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\DataBuses;
 
 use Illuminate\Database\Eloquent\Model;
 
-
-class ConfigResource  extends BaseResource
+class ConfigResource extends BaseResource
 {
     public function getData(string $name, string $value, Model $model, DataBus $dataBus)
     {

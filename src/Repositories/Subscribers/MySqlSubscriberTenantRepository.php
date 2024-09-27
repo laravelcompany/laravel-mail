@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Repositories\Subscribers;
 
 use Carbon\CarbonPeriod;
@@ -33,7 +35,7 @@ class MySqlSubscriberTenantRepository extends BaseSubscriberTenantRepository
 
 
         $runningTotal = DB::table('subscribers')
-            ->selectRaw("$createdAtFormat AS date, count(*) as total")
+            ->selectRaw("{$createdAtFormat} AS date, count(*) as total")
             ->where('workspace_id', $workspaceId)
             ->where('created_at', '>=', $period->getStartDate())
             ->where('created_at', '<=', $period->getEndDate())
@@ -41,7 +43,7 @@ class MySqlSubscriberTenantRepository extends BaseSubscriberTenantRepository
             ->get();
 
         $unsubscribers = DB::table('subscribers')
-            ->selectRaw("$unsubscribedAtFormat AS date, count(*) as total")
+            ->selectRaw("{$unsubscribedAtFormat} AS date, count(*) as total")
             ->where('workspace_id', $workspaceId)
             ->where('unsubscribed_at', '>=', $period->getStartDate())
             ->where('unsubscribed_at', '<=', $period->getEndDate())

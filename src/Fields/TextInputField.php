@@ -39,5 +39,4 @@ class TextInputField implements FieldInterface
             'placeholders' => $placeholders->toArray(),
         ])->render();
     }
-
 }

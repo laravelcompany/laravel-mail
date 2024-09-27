@@ -1,9 +1,10 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\DataBuses;
 
 use Illuminate\Database\Eloquent\Model;
-use LaravelCompany\Mail\DataBuses\Resource;
 
 class ValueResource implements Resource
 {

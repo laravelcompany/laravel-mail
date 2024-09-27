@@ -9,11 +9,11 @@ use DateInterval;
 use DatePeriod;
 use Exception;
 use Illuminate\Support\Collection;
-use RuntimeException;
 use LaravelCompany\Mail\Models\Campaign;
 use LaravelCompany\Mail\Repositories\Campaigns\CampaignTenantRepositoryInterface;
 use LaravelCompany\Mail\Repositories\Messages\MessageTenantRepositoryInterface;
 use LaravelCompany\Mail\Repositories\MessageUrlRepository;
+use RuntimeException;
 
 class CampaignReportPresenter
 {

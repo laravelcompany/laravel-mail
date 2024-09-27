@@ -1,9 +1,10 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\DataBuses;
 
 use LaravelCompany\Mail\Models\Workflow;
-use Illuminate\Database\Eloquent\Model;
 
 trait DataBussable
 {
@@ -25,7 +26,7 @@ trait DataBussable
     {
         $newFields = $passedFields;
 
-        if (!empty($this->parentable)) {
+        if (! empty($this->parentable)) {
             foreach ($this->parentable::$output as $key => $value) {
                 $fieldKey = sprintf(
                     '%s - %s - %s',

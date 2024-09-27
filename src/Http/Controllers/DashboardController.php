@@ -1,12 +1,13 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Http\Controllers;
 
 use Carbon\CarbonPeriod;
 use Exception;
 use Illuminate\View\View;
 use LaravelCompany\Mail\Facades\LaravelMail;
-use LaravelCompany\Mail\Facades\Sendportal;
 use LaravelCompany\Mail\Repositories\Campaigns\CampaignTenantRepositoryInterface;
 use LaravelCompany\Mail\Repositories\Messages\MessageTenantRepositoryInterface;
 use LaravelCompany\Mail\Repositories\Subscribers\SubscriberTenantRepositoryInterface;

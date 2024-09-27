@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\DataBuses;
 
 use Illuminate\Database\Eloquent\Model;
@@ -23,7 +25,7 @@ class ModelResource implements Resource
 
         $variables = [];
         foreach ($classes as $class) {
-            $model = new $class;
+            $model = new $class();
             foreach (Schema::getColumnListing($model->getTable()) as $item) {
                 $variables[$class.'->'.$item] = $item;
             }

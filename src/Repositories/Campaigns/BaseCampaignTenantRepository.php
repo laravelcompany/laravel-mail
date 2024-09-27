@@ -111,6 +111,5 @@ abstract class BaseCampaignTenantRepository extends BaseTenantRepository impleme
         if ($filterKey && isset($filterMapping[$filterKey])) {
             $instance->whereIn('status_id', $filterMapping[$filterKey]);
         }
-
     }
 }

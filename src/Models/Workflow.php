@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +13,7 @@ class Workflow extends Model
 
     protected $table = 'workflows';
 
-    protected  $fillable = [
+    protected $fillable = [
         'name',
     ];
 

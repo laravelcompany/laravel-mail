@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Pipelines\Testing;
 
 use Illuminate\Http\Request;
@@ -10,10 +12,8 @@ use LaravelCompany\Mail\Models\Subscriber;
 
 class SendMessage
 {
-
     public function handle(Request $request, $next)
     {
-
         $campaign = Campaign::find($request->campaign);
 
         $subscriber = Subscriber::where('email', $request->email)->first();
@@ -38,6 +38,4 @@ class SendMessage
 
         return $next($request);
     }
-
-
 }

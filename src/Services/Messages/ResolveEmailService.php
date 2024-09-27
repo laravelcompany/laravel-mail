@@ -1,12 +1,14 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Services\Messages;
 
 use Exception;
 use LaravelCompany\Mail\Models\EmailService;
 use LaravelCompany\Mail\Models\Message;
-use LaravelCompany\Mail\Repositories\Campaigns\CampaignTenantRepositoryInterface;
 use LaravelCompany\Mail\Repositories\AutomationScheduleRepository;
+use LaravelCompany\Mail\Repositories\Campaigns\CampaignTenantRepositoryInterface;
 
 class ResolveEmailService
 {

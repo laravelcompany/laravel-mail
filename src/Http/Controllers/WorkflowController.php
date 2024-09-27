@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
@@ -13,10 +15,8 @@ use LaravelCompany\Mail\Tasks\Task;
 use LaravelCompany\Mail\Triggers\ReRunTrigger;
 use LaravelCompany\Mail\Triggers\Trigger;
 
-
 class WorkflowController extends Controller
 {
-
     protected WorkflowRepository $workflowRepository;
 
     public function __construct(WorkflowRepository $workflowRepository)
@@ -25,7 +25,7 @@ class WorkflowController extends Controller
     }
 
 
-    public function index():View
+    public function index(): View
     {
         $workflows = $this->workflowRepository->paginate('name');
 
@@ -35,14 +35,14 @@ class WorkflowController extends Controller
     /**
      * @throws \Exception
      */
-    public function show(int $id):View
+    public function show(int $id): View
     {
         $workflow = $this->workflowRepository->find($id);
 
         return view('laravel-mail::workflows.diagram', ['workflow' => $workflow]);
     }
 
-    public function create():View
+    public function create(): View
     {
         return view('laravel-mail::workflows.create');
     }
@@ -70,9 +70,9 @@ class WorkflowController extends Controller
     /**
      * @throws \Exception
      */
-    public function update(Request $request, $id):RedirectResponse
+    public function update(Request $request, $id): RedirectResponse
     {
-        $this->workflowRepository->update($id,$request->all());
+        $this->workflowRepository->update($id, $request->all());
 
         return redirect(route('laravel-mail.workflows.index'));
     }
@@ -81,7 +81,7 @@ class WorkflowController extends Controller
     /**
      * @throws \Exception
      */
-    public function delete(int $id):RedirectResponse
+    public function delete(int $id): RedirectResponse
     {
         $this->workflowRepository->find($id)->delete();
 
@@ -135,8 +135,6 @@ class WorkflowController extends Controller
 
     public function addTrigger(int $id, Request $request)
     {
-
-
         $workflow = $this->workflowRepository->find($id);
 
         $triggerType = config('workflows.triggers.types')[$request->node['name']] ?? null;
@@ -239,12 +237,15 @@ class WorkflowController extends Controller
         if ($request->parent_element['data']['type'] == 'trigger') {
             $parentElement = Trigger::where('workflow_id', $workflow->id)->where('id', $request->parent_element['data']['trigger_id'])->first();
         }
+
         if ($request->parent_element['data']['type'] == 'task') {
             $parentElement = Task::where('workflow_id', $workflow->id)->where('id', $request->parent_element['data']['task_id'])->first();
         }
+
         if ($request->child_element['data']['type'] == 'trigger') {
             $childElement = Trigger::where('workflow_id', $workflow->id)->where('id', $request->child_element['data']['trigger_id'])->first();
         }
+
         if ($request->child_element['data']['type'] == 'task') {
             $childElement = Task::where('workflow_id', $workflow->id)->where('id', $request->child_element['data']['task_id'])->first();
         }
@@ -300,7 +301,6 @@ class WorkflowController extends Controller
         return view('laravel-mail::workflows.layouts.settings_overlay', [
             'element' => $element,
         ]);
-
     }
 
     public function getElementConditions($id, Request $request)
@@ -310,6 +310,7 @@ class WorkflowController extends Controller
         if ($request->type == 'task') {
             $element = Task::where('workflow_id', $workflow->id)->where('id', $request->element_id)->first();
         }
+
         if ($request->type == 'trigger') {
             $element = Trigger::where('workflow_id', $workflow->id)->where('id', $request->element_id)->first();
         }
@@ -334,6 +335,7 @@ class WorkflowController extends Controller
         if ($request->type == 'task') {
             $element = Task::where('workflow_id', $workflow->id)->where('id', $request->element_id)->first();
         }
+
         if ($request->type == 'trigger') {
             $element = Trigger::where('workflow_id', $workflow->id)->where('id', $request->element_id)->first();
         }
@@ -353,7 +355,7 @@ class WorkflowController extends Controller
     /**
      * @throws \Exception
      */
-    public function getLogs($id):View
+    public function getLogs($id): View
     {
         $workflow = $this->workflowRepository->find($id);
 

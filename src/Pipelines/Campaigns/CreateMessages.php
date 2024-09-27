@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Pipelines\Campaigns;
 
 use LaravelCompany\Mail\Events\MessageDispatchEvent;

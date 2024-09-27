@@ -1,4 +1,5 @@
 <?php
+
 namespace LaravelCompany\Mail\Triggers;
 
 use Illuminate\Database\Eloquent\Model;
@@ -12,7 +13,8 @@ use LaravelCompany\Mail\Loggers\WorkflowLog;
 //todo move the function for new builder in a base model or something
 class Trigger extends Model
 {
-    use DataBussable, Fieldable;
+    use DataBussable;
+    use Fieldable;
 
     protected $table = 'triggers';
 
@@ -136,6 +138,6 @@ class Trigger extends Model
 
     public static function getTranslationKey(): string
     {
-       return __((new \ReflectionClass(new static))->getShortName());
+        return __((new \ReflectionClass(new static()))->getShortName());
     }
 }

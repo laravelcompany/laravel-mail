@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Triggers;
 
 use LaravelCompany\Mail\Loggers\WorkflowLog;

@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Console;
 
 use Illuminate\Console\Scheduling\Schedule;

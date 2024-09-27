@@ -29,7 +29,7 @@ class WebviewController extends Controller
         /** @var Message $message */
         $message = Message::with('subscriber')->where('hash', $messageHash)->first();
 
-        if (!$message) {
+        if (! $message) {
             throw new RuntimeException('Message not found');
         }
         $content = $this->merger->handle($message);

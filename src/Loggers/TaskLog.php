@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Loggers;
 
 use Illuminate\Database\Eloquent\Model;

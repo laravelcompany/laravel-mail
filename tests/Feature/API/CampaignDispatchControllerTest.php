@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Tests\Feature\API;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Mockery;
 use LaravelCompany\Mail\Facades\LaravelMail;
 use LaravelCompany\Mail\Interfaces\QuotaServiceInterface;
 use LaravelCompany\Mail\Models\Campaign;
@@ -13,6 +12,7 @@ use LaravelCompany\Mail\Models\CampaignStatus;
 use LaravelCompany\Mail\Models\EmailService;
 use LaravelCompany\Mail\Models\EmailServiceType;
 use LaravelCompany\Mail\Services\QuotaService;
+use Mockery;
 
 use Symfony\Component\HttpFoundation\Response;
 use Tests\TestCase;

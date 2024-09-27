@@ -11,7 +11,6 @@ use LaravelCompany\Mail\Http\Controllers\Controller;
 
 class PostalWebhooksController extends Controller
 {
-
     // TODO(david): This is not working yet.
     public function handle(): Response
     {

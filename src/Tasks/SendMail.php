@@ -26,6 +26,7 @@ class SendMail extends Task
                 ->to($dataBus->get('recipients'))
                 ->from($dataBus->get('sender'));
             $counter = 1;
+
             if (is_array($dataBus->get('files'))) {
                 foreach ($dataBus->get('files') as $file) {
                     $message->attachData($file, $dataBus->get('file_name'), [
@@ -34,9 +35,11 @@ class SendMail extends Task
                     $counter++;
                 }
             }
+
             if (! empty($dataBus->get('cc'))) {
                 $message->cc($dataBus->get('cc'));
             }
+
             if (! empty($dataBus->get('bcc'))) {
                 $message->bcc($dataBus->get('bcc'));
             }

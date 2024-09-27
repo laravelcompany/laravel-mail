@@ -8,13 +8,13 @@ use Carbon\Carbon;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-use RuntimeException;
 use LaravelCompany\Mail\Facades\Helper;
+use LaravelCompany\Mail\Models\AutomationSchedule;
 use LaravelCompany\Mail\Models\Message;
 use LaravelCompany\Mail\Models\MessageFailure;
 use LaravelCompany\Mail\Models\MessageUrl;
 use LaravelCompany\Mail\Models\UnsubscribeEventType;
-use LaravelCompany\Mail\Models\AutomationSchedule;
+use RuntimeException;
 
 class EmailWebhookService
 {

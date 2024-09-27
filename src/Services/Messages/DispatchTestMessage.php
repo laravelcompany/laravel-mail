@@ -13,7 +13,6 @@ use LaravelCompany\Mail\Models\Message;
 use LaravelCompany\Mail\Repositories\Campaigns\CampaignTenantRepositoryInterface;
 use LaravelCompany\Mail\Services\Content\MergeContentService;
 
-
 class DispatchTestMessage
 {
     /** @var ResolveEmailService */

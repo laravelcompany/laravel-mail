@@ -42,6 +42,7 @@ class TextInput extends Task
         $obLevel = ob_get_level();
         ob_start();
         extract($__data, EXTR_SKIP);
+
         try {
             eval('?'.'>'.$__php);
         } catch (Exception $e) {

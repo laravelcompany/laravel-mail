@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail;
 
 use Illuminate\Database\Migrations\Migration;

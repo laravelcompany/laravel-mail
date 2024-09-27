@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Services\Campaigns;
 
 use Illuminate\Pipeline\Pipeline;
@@ -17,7 +19,7 @@ class CampaignDispatchService
      * @param Campaign $campaign
      * @return void
      */
-    public function handle(Campaign $campaign):void
+    public function handle(Campaign $campaign): void
     {
         // check if the campaign still exists
         if (! $campaign = $this->findCampaign($campaign->id)) {

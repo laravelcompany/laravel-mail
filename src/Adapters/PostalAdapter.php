@@ -6,9 +6,9 @@ namespace LaravelCompany\Mail\Adapters;
 
 use DomainException;
 use Illuminate\Support\Arr;
+use LaravelCompany\Mail\Services\Messages\MessageTrackingOptions;
 use Postal\Client;
 use Postal\SendMessage;
-use LaravelCompany\Mail\Services\Messages\MessageTrackingOptions;
 
 class PostalAdapter extends BaseMailAdapter
 {

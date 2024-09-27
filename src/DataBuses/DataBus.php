@@ -1,12 +1,12 @@
 <?php
+
 declare(strict_types=1);
 
 namespace LaravelCompany\Mail\DataBuses;
 
-use Illuminate\Database\Eloquent\Model;
-use LaravelCompany\Mail\DataBuses\ValueResource;
-use ReflectionClass;
 use Exception;
+use Illuminate\Database\Eloquent\Model;
+use ReflectionClass;
 
 class DataBus
 {
@@ -19,10 +19,9 @@ class DataBus
 
     public function collectData(Model $model, mixed $fields): void
     {
-
         $fieldsCollection = collect($fields)
             ->filter(function ($field, $name) {
-                return $name !== 'description' && !($name === 'file' && empty($field['value']));
+                return $name !== 'description' && ! ($name === 'file' && empty($field['value']));
             });
 
         $fieldsCollection->each(function ($field, $name) use ($model) {
@@ -31,15 +30,14 @@ class DataBus
             try {
                 $reflection = new ReflectionClass($resourceClass);
 
-                if (!$reflection->isInstantiable() || !method_exists($resourceClass, 'getData')) {
-                    throw new Exception("Class $resourceClass cannot be instantiated or does not have method getData.");
+                if (! $reflection->isInstantiable() || ! method_exists($resourceClass, 'getData')) {
+                    throw new Exception("Class {$resourceClass} cannot be instantiated or does not have method getData.");
                 }
 
                 $resource = $reflection->newInstance();
 
 
                 $this->data[$name] = $resource->getData($name, $field['value'] ?? '', $model, $this);
-
             } catch (Exception $e) {
                 // Handle error (e.g., log the error)
                 logger()->error($e->getMessage());
@@ -52,7 +50,7 @@ class DataBus
         return implode("\n", $this->data);
     }
 
-    public function get(string $key, string $default = null):mixed
+    public function get(string $key, string $default = null): mixed
     {
         return $this->data[$key] ?? $default;
     }

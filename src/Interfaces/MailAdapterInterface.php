@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Interfaces;
 
 use LaravelCompany\Mail\Services\Messages\MessageTrackingOptions;

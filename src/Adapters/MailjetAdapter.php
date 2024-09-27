@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace LaravelCompany\Mail\Adapters;
 
 use Illuminate\Support\Arr;
+use LaravelCompany\Mail\Services\Messages\MessageTrackingOptions;
 use Mailjet\Client;
 use Mailjet\Resources;
 use Mailjet\Response;
-use LaravelCompany\Mail\Services\Messages\MessageTrackingOptions;
 
 class MailjetAdapter extends BaseMailAdapter
 {

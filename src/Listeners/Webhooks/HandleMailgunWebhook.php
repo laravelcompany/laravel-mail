@@ -9,12 +9,12 @@ use Exception;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Log;
-use RuntimeException;
 use LaravelCompany\Mail\Events\Webhooks\MailgunWebhookReceived;
 use LaravelCompany\Mail\Models\EmailService;
 use LaravelCompany\Mail\Models\Message;
 use LaravelCompany\Mail\Services\Webhooks\EmailWebhookService;
 use LaravelCompany\Mail\Services\Webhooks\Mailgun\WebhookVerifier;
+use RuntimeException;
 
 class HandleMailgunWebhook implements ShouldQueue
 {

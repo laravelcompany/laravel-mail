@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Repositories\Messages;
 
 use Illuminate\Support\Collection;

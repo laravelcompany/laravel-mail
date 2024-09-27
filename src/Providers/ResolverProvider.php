@@ -20,6 +20,4 @@ class ResolverProvider extends ServiceProvider
             return new ResolverService();
         });
     }
-
-
 }

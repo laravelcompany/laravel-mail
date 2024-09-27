@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Tasks;
 
 use Barryvdh\DomPDF\Facade\Pdf;

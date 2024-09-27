@@ -1,11 +1,13 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Repositories;
 
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
-use RuntimeException;
 use LaravelCompany\Mail\Interfaces\BaseTenantInterface;
+use RuntimeException;
 
 abstract class BaseTenantRepository implements BaseTenantInterface
 {

@@ -3,7 +3,6 @@
 namespace LaravelCompany\Mail\DataBuses;
 
 use Illuminate\Database\Eloquent\Model;
-use LaravelCompany\Mail\DataBuses\DataBus;
 
 class BaseResource implements Resource
 {

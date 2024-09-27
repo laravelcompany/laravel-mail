@@ -8,9 +8,9 @@ use Carbon\Carbon;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Log;
-use RuntimeException;
 use LaravelCompany\Mail\Events\Webhooks\MailjetWebhookReceived;
 use LaravelCompany\Mail\Services\Webhooks\EmailWebhookService;
+use RuntimeException;
 
 class HandleMailjetWebhook implements ShouldQueue
 {

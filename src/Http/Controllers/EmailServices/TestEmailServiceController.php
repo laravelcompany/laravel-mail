@@ -1,12 +1,13 @@
 <?php
+
 declare(strict_types=1);
+
 namespace LaravelCompany\Mail\Http\Controllers\EmailServices;
 
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use LaravelCompany\Mail\Facades\LaravelMail;
-use LaravelCompany\Mail\Facades\Sendportal;
 use LaravelCompany\Mail\Http\Controllers\Controller;
 use LaravelCompany\Mail\Http\Requests\EmailServiceTestRequest;
 use LaravelCompany\Mail\Repositories\EmailServiceTenantRepository;
