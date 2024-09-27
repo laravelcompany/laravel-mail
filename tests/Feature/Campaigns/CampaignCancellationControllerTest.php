@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Tests\Feature\Campaigns;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use LaravelCompany\Mail\Facades\Sendportal;
-use LaravelCompany\Mail\Models\Campaign;
-use LaravelCompany\Mail\Models\CampaignStatus;
-use LaravelCompany\Mail\Models\Message;
-use LaravelCompany\Mail\Models\Subscriber;
-use LaravelCompany\Mail\Models\Tag;
+use Sendportal\Base\Facades\Sendportal;
+use Sendportal\Base\Models\Campaign;
+use Sendportal\Base\Models\CampaignStatus;
+use Sendportal\Base\Models\Message;
+use Sendportal\Base\Models\Subscriber;
+use Sendportal\Base\Models\Tag;
 use Tests\TestCase;
 
 class CampaignCancellationControllerTest extends TestCase

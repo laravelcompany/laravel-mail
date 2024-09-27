@@ -7,7 +7,7 @@ use LaravelCompany\Mail\DataBuses\Resource;
 
 class ValueResource implements Resource
 {
-    public function getData(string $name, string $value, Model $model, DataBus $dataBus)
+    public function getData(mixed $name, mixed $value, Model $model, DataBus $dataBus)
     {
         return $value;
     }
@@ -32,7 +32,7 @@ class ValueResource implements Resource
             return $element->inputField($field)->render($element, $value, $field);
         }
 
-        return view('workflows::fields.text_field', [
+        return view('laravel-mail::workflows.fields.text_field', [
             'value' => $value,
             'field' => $field,
         ])->render();

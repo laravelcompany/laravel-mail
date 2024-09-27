@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+
 namespace Tests;
 
 use Illuminate\Support\Facades\Route;
@@ -8,7 +8,7 @@ use LaravelCompany\Mail\Facades\LaravelMail;
 
 class LaravelMailTestServiceProvider extends ServiceProvider
 {
-    public function boot():void
+    public function boot()
     {
         LaravelMail::setCurrentWorkspaceIdResolver(function () {
             return 1;

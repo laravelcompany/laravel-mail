@@ -1,5 +1,4 @@
 <?php
-
 namespace LaravelCompany\Mail\Triggers;
 
 use Illuminate\Database\Eloquent\Model;
@@ -10,6 +9,7 @@ use LaravelCompany\Mail\Fields\Fieldable;
 use LaravelCompany\Mail\Jobs\ProcessWorkflow;
 use LaravelCompany\Mail\Loggers\WorkflowLog;
 
+//todo move the function for new builder in a base model or something
 class Trigger extends Model
 {
     use DataBussable, Fieldable;
@@ -136,8 +136,6 @@ class Trigger extends Model
 
     public static function getTranslationKey(): string
     {
-        $className = (new \ReflectionClass(new static))->getShortName();
-
-        return "workflows::workflows.Elements.{$className}";
+       return __((new \ReflectionClass(new static))->getShortName());
     }
 }

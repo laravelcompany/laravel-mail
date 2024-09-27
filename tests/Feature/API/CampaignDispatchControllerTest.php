@@ -6,13 +6,14 @@ namespace Tests\Feature\API;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Mockery;
-use LaravelCompany\Mail\Facades\LaravelMail as Sendportal;
+use LaravelCompany\Mail\Facades\LaravelMail;
 use LaravelCompany\Mail\Interfaces\QuotaServiceInterface;
 use LaravelCompany\Mail\Models\Campaign;
 use LaravelCompany\Mail\Models\CampaignStatus;
 use LaravelCompany\Mail\Models\EmailService;
 use LaravelCompany\Mail\Models\EmailServiceType;
 use LaravelCompany\Mail\Services\QuotaService;
+
 use Symfony\Component\HttpFoundation\Response;
 use Tests\TestCase;
 
@@ -30,12 +31,12 @@ class CampaignDispatchControllerTest extends TestCase
         $campaign = Campaign::factory()
             ->draft()
             ->create([
-                'workspace_id' => Sendportal::currentWorkspaceId(),
+                'workspace_id' => LaravelMail::currentWorkspaceId(),
                 'email_service_id' => $emailService->id,
             ]);
 
         $this
-            ->postJson(route('sendportal.api.campaigns.send', [
+            ->postJson(route('laravel-mail.api.campaigns.send', [
                 'id' => $campaign->id
             ]))
             ->assertOk()
@@ -56,7 +57,7 @@ class CampaignDispatchControllerTest extends TestCase
         $campaign = $this->createCampaign($emailService);
 
         $this
-            ->postJson(route('sendportal.api.campaigns.send', [
+            ->postJson(route('laravel-mail.api.campaigns.send', [
                 'id' => $campaign->id,
             ]))
             ->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
@@ -73,17 +74,17 @@ class CampaignDispatchControllerTest extends TestCase
         }));
 
         $emailService = EmailService::factory()->create([
-            'workspace_id' => Sendportal::currentWorkspaceId(),
+            'workspace_id' => LaravelMail::currentWorkspaceId(),
             'type_id' => EmailServiceType::SES
         ]);
 
         $campaign = Campaign::factory()->draft()->create([
-            'workspace_id' => Sendportal::currentWorkspaceId(),
+            'workspace_id' => LaravelMail::currentWorkspaceId(),
             'email_service_id' => $emailService->id,
         ]);
 
         $this
-            ->postJson(route('sendportal.api.campaigns.send', [
+            ->postJson(route('laravel-mail.api.campaigns.send', [
                 'id' => $campaign->id,
             ]))
             ->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)

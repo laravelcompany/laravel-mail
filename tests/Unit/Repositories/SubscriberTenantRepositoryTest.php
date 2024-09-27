@@ -9,13 +9,13 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Sendportal\Base\Facades\Sendportal;
 use Sendportal\Base\Models\Subscriber;
 use Sendportal\Base\Repositories\Subscribers\SubscriberTenantRepositoryInterface;
-use Tests\LaravelMailTestSupportTrait;
+use Tests\SendportalTestSupportTrait;
 use Tests\TestCase;
 
 class SubscriberTenantRepositoryTest extends TestCase
 {
     use RefreshDatabase;
-    use LaravelMailTestSupportTrait;
+    use SendportalTestSupportTrait;
 
     protected $repository;
 

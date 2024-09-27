@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use LaravelCompany\Mail\Triggers\WorkflowObservable;
 use Ramsey\Uuid\Uuid;
 
 /**
@@ -35,7 +36,7 @@ use Ramsey\Uuid\Uuid;
 class Subscriber extends BaseModel
 {
     use HasFactory;
-
+    use WorkflowObservable;
     // NOTE(david): we require this because of namespace issues when resolving factories from models
     // not in the default `App\Models` namespace.
     protected static function newFactory()

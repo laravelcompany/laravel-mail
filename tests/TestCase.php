@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Tests;
 
 use Illuminate\Support\Str;
-use Orchestra\Testbench\TestCase as BaseTestCase;
-use LaravelCompany\Mail\MailBaseServiceProvider;
 use LaravelCompany\Mail\Services\Messages\RelayMessage;
+use Orchestra\Testbench\TestCase as BaseTestCase;
+
 
 abstract class TestCase extends BaseTestCase
 {
@@ -20,7 +20,7 @@ abstract class TestCase extends BaseTestCase
     protected function getPackageProviders($app): array
     {
         return [
-            MailBaseServiceProvider::class,
+            SendportalBaseServiceProvider::class,
             LaravelMailTestServiceProvider::class,
         ];
     }

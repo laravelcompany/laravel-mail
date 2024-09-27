@@ -7,9 +7,9 @@ namespace Tests\Feature\API;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Arr;
-use LaravelCompany\Mail\Facades\Sendportal;
-use LaravelCompany\Mail\Models\Subscriber;
-use LaravelCompany\Mail\Models\Tag;
+use Sendportal\Base\Facades\Sendportal;
+use Sendportal\Base\Models\Subscriber;
+use Sendportal\Base\Models\Tag;
 use Tests\TestCase;
 
 class SubscribersControllerTest extends TestCase

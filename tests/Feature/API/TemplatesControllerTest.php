@@ -7,10 +7,10 @@ namespace Tests\Feature\API;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Arr;
-use LaravelCompany\Mail\Facades\Sendportal;
-use LaravelCompany\Mail\Models\Campaign;
-use LaravelCompany\Mail\Models\Template;
-use LaravelCompany\Mail\Traits\NormalizeTags;
+use Sendportal\Base\Facades\Sendportal;
+use Sendportal\Base\Models\Campaign;
+use Sendportal\Base\Models\Template;
+use Sendportal\Base\Traits\NormalizeTags;
 use Tests\TestCase;
 
 class TemplatesControllerTest extends TestCase

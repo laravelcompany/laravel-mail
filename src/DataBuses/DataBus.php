@@ -36,6 +36,8 @@ class DataBus
                 }
 
                 $resource = $reflection->newInstance();
+
+
                 $this->data[$name] = $resource->getData($name, $field['value'] ?? '', $model, $this);
 
             } catch (Exception $e) {

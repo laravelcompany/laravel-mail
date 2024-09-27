@@ -32,7 +32,7 @@ class DataBusResource implements Resource
     {
         $fields = self::getValues($element, $value, $field);
 
-        return view('workflows::fields.data_bus_resource_field', [
+        return view('laravel-mail::workflows.fields.data_bus_resource_field', [
             'fields' => $fields,
             'value' => $value,
             'field' => $field,

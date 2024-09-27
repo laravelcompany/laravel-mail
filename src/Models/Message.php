@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use LaravelCompany\Mail\Triggers\WorkflowObservable;
 use Ramsey\Uuid\Uuid;
 
 
@@ -53,7 +54,7 @@ use Ramsey\Uuid\Uuid;
 class Message extends BaseModel
 {
     use HasFactory;
-
+    use WorkflowObservable;
     // NOTE(david): we require this because of namespace issues when resolving factories from models
     // not in the default `App\Models` namespace.
     protected static function newFactory()
