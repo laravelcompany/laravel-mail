@@ -1,0 +1,22 @@
+{
+    "name": "laravelcompany/laravel-mail",
+    "description": "Laravel Mail is a fully featured email marketing platform built for growing creators, developers, and businesses - laravelmail.com",
+    "type": "library",
+    "license": "CC 04",
+    "authors": [
+        {
+            "name": "Stefan Bogdanel",
+            "email": "stefan@izdrail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "laravel/framework": "^11.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+
+    }
+}
