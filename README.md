@@ -21,3 +21,40 @@ Our platform supports various SMTP providers, including Mailgun, SendGrid, Postm
 Inspired by the 42 Coders Workflow package, this feature offers advanced workflows for quicker email marketing setups.
 
 ![Workflow Concept](https://raw.githubusercontent.com/42coders/workflows/master/resources/img/workflow_concept.png)
+
+
+## A Platform Born from Community Innovation
+
+Emerging from the collaboration of **SendPortal.io** and **42workflows package**, Laravel Mail represents the fusion of creativity and innovation.
+
+---
+
+## Revolutionary Features
+
+- **Host with Complete Autonomy**: Laravel Mail adapts to your infrastructure, from VPS to Raspberry Pi.
+- **Financial Freedom**: Say goodbye to expensive pricing tiers.
+- **Intelligence Meets Innovation**: Powered by Docker and enhanced by Reacher Email Validation.
+
+---
+
+## Experience the Innovation
+
+Visit: [app.laravelmail.com](https://app.laravelmail.com/login)
+
+**Demo Access:**
+- **Username**: demo@demo.com
+- **Password**: secret
+
+---
+![Demo](https://cdni.iconscout.com/illustration/premium/thumb/businessman-is-showing-demo-video-to-employees-illustration-download-in-svg-png-gif-file-formats--call-logo-online-discussion-training-business-pack-illustrations-8287558.png?f=webp)
+
+## A New Chapter in Email Marketing
+
+This holiday season, we're not just launching a platform; we're igniting a movement to democratize email marketing through open-source innovation.
+
+> From our Laravel family to yours, may your holidays be filled with inspiration.
+
+With warm regards,  
+[Laravel Company Essex](https://laravelcompany.com)
+
+
