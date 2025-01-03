@@ -1,10 +1,11 @@
 # Laravel mail platform
 Transform Your Email Marketing with Laravel-Powered Intelligence Welcome to the next generation of email marketing and management, built specifically for Laravel applications. Our community-inspired mail platform combines enterprise-level features with cost-effective solutions, helping businesses streamline their email operations while maximizing ROI.
 
-Our platform supports various SMTP providers, including Mailgun, SendGrid, Postmark, and Amazon SES.
+## Revolutionary Features
 
-### Features
-
+- **Host with Complete Autonomy**: Laravel Mail adapts to your infrastructure, from VPS to Raspberry Pi.
+- **Financial Freedom**: Say goodbye to expensive pricing tiers.
+- **Intelligence Meets Innovation**: Powered by Docker and enhanced by Reacher Email Validation.
 - **Laravel Mailgun**: Supports multiple SMTP providers.
 - **Laravel Email Verification**: Built-in email verification to reduce bounce emails.
 - **Multiple Workspaces**: Manage multiple teams through a single interface.
@@ -13,29 +14,13 @@ Our platform supports various SMTP providers, including Mailgun, SendGrid, Postm
 - **Dark Mode**: Fully integrated dark mode for user preference.
 - **Design Workflows**: Create efficient workflows for email marketing.
 - **Lighthouse Scores**: Optimized for fast website loading and better SEO.
-
 ---
 
 ## Advanced Workflows
 
 Inspired by the 42 Coders Workflow package, this feature offers advanced workflows for quicker email marketing setups.
 
-![Workflow Concept](https://raw.githubusercontent.com/42coders/workflows/master/resources/img/workflow_concept.png)
 
-
-## A Platform Born from Community Innovation
-
-Emerging from the collaboration of **SendPortal.io** and **42workflows package**, Laravel Mail represents the fusion of creativity and innovation.
-
----
-
-## Revolutionary Features
-
-- **Host with Complete Autonomy**: Laravel Mail adapts to your infrastructure, from VPS to Raspberry Pi.
-- **Financial Freedom**: Say goodbye to expensive pricing tiers.
-- **Intelligence Meets Innovation**: Powered by Docker and enhanced by Reacher Email Validation.
-
----
 
 ## Experience the Innovation
 
@@ -58,3 +43,11 @@ With warm regards,
 [Laravel Company Essex](https://laravelcompany.com)
 
 
+
+
+
+## A Platform Born from Community Innovation
+
+Emerging from the collaboration of **SendPortal.io** and **42workflows package**, Laravel Mail represents the fusion of creativity and innovation.
+
+---
