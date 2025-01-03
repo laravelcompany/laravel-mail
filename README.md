@@ -38,12 +38,6 @@ Visit: [app.laravelmail.com](https://app.laravelmail.com/login)
 
 ---
 
-![Demo Image](https://cdni.iconscout.com/illustration/premium/thumb/businessman-is-showing-demo-video-to-employees-illustration-download-in-svg-png-gif-file-formats--call-logo-online-discussion-training-business-pack-illustrations-8287558.png?f=webp)
-
-[View Image in Full Size](https://cdni.iconscout.com/illustration/premium/thumb/businessman-is-showing-demo-video-to-employees-illustration-download-in-svg-png-gif-file-formats--call-logo-online-discussion-training-business-pack-illustrations-8287558.png?f=webp)
-
----
-
 ## A New Chapter in Email Marketing
 
 This holiday season, we're not just launching a platform; we're igniting a movement to democratize email marketing through open-source innovation.
